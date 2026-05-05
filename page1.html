@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GOLF DTV 提案資料 1/3 – 要望書</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Noto Sans JP', 'Inter', sans-serif;
+    background: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  .page {
+    width: 794px;
+    min-height: 1123px;
+    background: #fff;
+    padding: 36px 44px 32px;
+    position: relative;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid #1a6b3c;
+  }
+  .header-left .brand { font-size: 11px; font-weight: 700; color: #1a6b3c; letter-spacing: 1px; }
+  .header-left .tagline { font-size: 16px; font-weight: 900; color: #111; margin-top: 2px; }
+  .header-right { text-align: right; font-size: 10px; color: #888; line-height: 1.6; }
+
+  .section-badge {
+    display: inline-block;
+    background: #1a6b3c;
+    color: #fff;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 3px 10px;
+    border-radius: 2px;
+    margin-bottom: 4px;
+  }
+  .section-title {
+    font-size: 20px;
+    font-weight: 900;
+    color: #111;
+    margin-bottom: 14px;
+    line-height: 1.3;
+  }
+
+  /* 2カラム説明 */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .info-box {
+    border: 1.5px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 14px;
+  }
+  .info-box .box-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #1a6b3c;
+    margin-bottom: 6px;
+  }
+  .info-box .box-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 8px;
+  }
+  .info-box p {
+    font-size: 9.5px;
+    color: #444;
+    line-height: 1.7;
+    margin-bottom: 8px;
+  }
+  .info-box .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 6px;
+  }
+  .tag {
+    font-size: 8px;
+    background: #f0f7f3;
+    color: #1a6b3c;
+    border: 1px solid #c8e6d4;
+    padding: 2px 7px;
+    border-radius: 3px;
+    font-weight: 500;
+  }
+  .stat-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    margin-top: 8px;
+  }
+  .stat-item {
+    background: #f7f9f7;
+    border-radius: 5px;
+    padding: 7px 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .stat-item .stat-icon { font-size: 14px; }
+  .stat-item .stat-label { font-size: 8px; color: #888; }
+  .stat-item .stat-val { font-size: 12px; font-weight: 700; color: #1a6b3c; }
+
+  .check-list { list-style: none; }
+  .check-list li {
+    font-size: 9.5px;
+    color: #333;
+    padding: 4px 0;
+    border-bottom: 1px dashed #eee;
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    line-height: 1.5;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list li::before {
+    content: '✅';
+    font-size: 10px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* フロー図 */
+  .flow-section {
+    margin-bottom: 14px;
+  }
+  .flow-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: #1a6b3c;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .flow-title::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 14px;
+    background: #1a6b3c;
+    border-radius: 2px;
+  }
+  .flow-container {
+    background: #f7f9f7;
+    border: 1px solid #c8e6d4;
+    border-radius: 8px;
+    padding: 16px;
+  }
+  .flow-row {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 10px;
+  }
+  .flow-box {
+    background: #fff;
+    border: 1.5px solid #1a6b3c;
+    border-radius: 6px;
+    padding: 8px 12px;
+    text-align: center;
+    flex: 1;
+  }
+  .flow-box .fb-label { font-size: 8px; color: #888; margin-bottom: 2px; }
+  .flow-box .fb-title { font-size: 10px; font-weight: 700; color: #1a6b3c; }
+  .flow-box .fb-sub { font-size: 8px; color: #555; margin-top: 2px; }
+  .flow-arrow {
+    font-size: 16px;
+    color: #1a6b3c;
+    padding: 0 6px;
+    flex-shrink: 0;
+  }
+  .flow-or {
+    background: #e6a817;
+    color: #000;
+    font-size: 9px;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin: 0 6px;
+    flex-shrink: 0;
+  }
+  .flow-box.dashed {
+    border-style: dashed;
+    border-color: #aaa;
+  }
+  .flow-box.dashed .fb-title { color: #555; }
+  .flow-goal {
+    background: linear-gradient(135deg, #1a6b3c, #0d4a28);
+    color: #fff;
+    border-radius: 6px;
+    padding: 8px 14px;
+    text-align: center;
+    flex: 0 0 auto;
+  }
+  .flow-goal .fg-label { font-size: 8px; color: #b8f5cc; margin-bottom: 2px; }
+  .flow-goal .fg-title { font-size: 10px; font-weight: 700; }
+  .flow-note {
+    font-size: 8.5px;
+    color: #666;
+    text-align: center;
+    margin-top: 6px;
+  }
+
+  /* SNS */
+  .sns-section { margin-bottom: 14px; }
+  .sns-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 6px;
+  }
+  .sns-badge {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: #f7f9f7;
+    border: 1px solid #c8e6d4;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 9px;
+    font-weight: 600;
+    color: #333;
+  }
+
+  /* まとめ */
+  .summary-box {
+    background: #f7f9f7;
+    border: 1.5px solid #1a6b3c;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 14px;
+  }
+  .summary-box .sum-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: #1a6b3c;
+    margin-bottom: 8px;
+  }
+  .summary-box .sum-item {
+    font-size: 9.5px;
+    color: #333;
+    padding: 4px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    line-height: 1.5;
+  }
+  .summary-box .sum-item::before {
+    content: '★';
+    color: #e6a817;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .footer {
+    margin-top: 16px;
+    padding-top: 10px;
+    border-top: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-left { font-size: 8.5px; color: #888; }
+  .footer-right { font-size: 9px; color: #888; }
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, #1a6b3c33, #1a6b3c, #1a6b3c33);
+    margin: 12px 0;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ヘッダー -->
+  <div class="header">
+    <div class="header-left">
+      <div class="brand">GOLF DTV</div>
+      <div class="tagline">タイ5年ビザをゴルフで取得しよう。</div>
+    </div>
+    <div class="header-right">
+      ご提案資料<br>1 / 3
+    </div>
+  </div>
+
+  <!-- タイトル -->
+  <div class="section-badge">PROPOSAL — 要望書</div>
+  <div class="section-title">Golfdigg サイトへのタブ設置・LP連携のご依頼</div>
+
+  <!-- 2カラム説明 -->
+  <div class="two-col">
+    <div class="info-box">
+      <div class="box-label">DTV（Destination Thailand Visa）</div>
+      <div class="box-title">タイ政府が新設した5年間ロングステイビザ</div>
+      <p>DTV（Destination Thailand Visa）は、タイ政府が2024年に新設した<strong>5年間有効のロングステイビザ</strong>です。180日ごとの更新で最長5年間タイに長期滞在が可能。</p>
+      <p><strong>取得目的の多様性：</strong>ワーケーション（デジタルノマド・リモートワーカー・フリーランサー）、ソフトパワー活動（ムエタイ修行・タイ料理学習・医療治療・文化芸術活動）、ファミリー（DTV保持者の配偶者・子ども）</p>
+      <div class="stat-row">
+        <div class="stat-item">
+          <span class="stat-icon">📅</span>
+          <div><div class="stat-label">有効期間</div><div class="stat-val">5年間</div></div>
+        </div>
+        <div class="stat-item">
+          <span class="stat-icon">🔄</span>
+          <div><div class="stat-label">更新サイクル</div><div class="stat-val">180日毎</div></div>
+        </div>
+        <div class="stat-item">
+          <span class="stat-icon">✈️</span>
+          <div><div class="stat-label">マルチエントリー</div><div class="stat-val">何度でも</div></div>
+        </div>
+        <div class="stat-item">
+          <span class="stat-icon">💰</span>
+          <div><div class="stat-label">残高証明</div><div class="stat-val">50万THB以上</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="info-box">
+      <div class="box-label">GOLF DTVとは</div>
+      <div class="box-title">業界唯一・業界初のゴルフスクール経由DTVビザ取得プログラム</div>
+      <p>GOLF DTVは、Thailand PGA提携スクールにて受講証明書を取得し、タイ5年ビザを安全・確実に申請。成功率96%、Legal Compliance & Visa Expertiseによる完全な法的検証、申請却下時スクール代100%返金保証付き。</p>
+      <ul class="check-list">
+        <li>世界各国タイ大使館・領事館との直接連携</li>
+        <li>Legal Compliance & Visa Expertiseによる完全な法的検証</li>
+        <li>Thailand PGA公認プロ提携スクール</li>
+        <li>申請却下時スクール代100%返金保証</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- フロー図 -->
+  <div class="flow-section">
+    <div class="flow-title">ご依頼内容①：タブ設置・LP連携フロー</div>
+    <div class="flow-container">
+      <div class="flow-row">
+        <div class="flow-box">
+          <div class="fb-label">Golfdigg</div>
+          <div class="fb-title">ナビゲーション</div>
+          <div class="fb-sub">🏌️ Golf Thai VISA タブ</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-arrow" style="font-size:9px;color:#555;padding:0;">クリック</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box">
+          <div class="fb-label">案A（直接遷移）</div>
+          <div class="fb-title">GOLF DTV</div>
+          <div class="fb-sub">ランディングページ<br>dtvclub.com/golf-dtv</div>
+        </div>
+        <div class="flow-or">OR</div>
+        <div class="flow-box dashed">
+          <div class="fb-label">案B（1枚挟む）</div>
+          <div class="fb-title">Golf Thai VISA タブ</div>
+          <div class="fb-sub">DTV紹介ページ<br>（Golfdigg内に設置）<br>↓ CTAボタン</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-goal">
+          <div class="fg-label">最終目標</div>
+          <div class="fg-title">GOLF DTV LP<br>無料相談・申込</div>
+        </div>
+      </div>
+      <div class="flow-note">※ テキスト内容・デザインについては、弊社よりご提案いたします。お気軽にご相談ください。</div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- SNS -->
+  <div class="sns-section">
+    <div class="flow-title">ご依頼内容②：SNSでの情報発信</div>
+    <p style="font-size:9.5px;color:#444;line-height:1.7;margin-bottom:8px;">Golfdiggの公式SNS（Instagram・Facebook・X等）にて、DTVビザ・GOLF DTVに関する情報発信をお願いしたく存じます。発信内容のテキスト・画像素材は<strong>弊社よりご提案</strong>いたします。ゴルフ愛好家の方々へ「タイでゴルフをしながら長期滞在できる」という新しい価値をお届けします。</p>
+    <div class="sns-row">
+      <div class="sns-badge">📸 Instagram投稿</div>
+      <div class="sns-badge">📘 Facebook投稿</div>
+      <div class="sns-badge">🐦 X（Twitter）</div>
+      <div class="sns-badge">💬 LINE公式</div>
+    </div>
+  </div>
+
+  <!-- まとめ -->
+  <div class="summary-box">
+    <div class="sum-title">ご依頼のまとめ</div>
+    <div class="sum-item">① Golfdiggサイトのナビゲーションに「Golf Thai VISA」タブを設置し、GOLF DTV LPへ誘導</div>
+    <div class="sum-item">② Golfdigg公式SNSにてDTVビザ・GOLF DTVの情報発信</div>
+    <div class="sum-item">③ テキスト・素材は弊社よりご提案（Golfdiggのご負担を最小限に）</div>
+  </div>
+
+  <!-- フッター -->
+  <div class="footer">
+    <div class="footer-left">GOLF DTV ─ dtvclub.com/golf-dtv ｜ DTVClub ─ dtvclub.com</div>
+    <div class="footer-right">1 / 3</div>
+  </div>
+
+</div>
+</body>
+</html>
